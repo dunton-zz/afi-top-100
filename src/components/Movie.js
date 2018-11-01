@@ -11,13 +11,14 @@ class Movie extends Component {
       isChecked: false,
       isExpanded: false,
       title: '',
-      Rated: '',
-      Released: '',
-      Runtime: '',
-      Actors: '',
-      Director: '',
-      Plot: '',
-      Production: ''
+      rated: '',
+      released: '',
+      runtime: '',
+      actors: '',
+      director: '',
+      plot: '',
+      production: '',
+      poster: ''
     };
   }
 
@@ -41,12 +42,13 @@ class Movie extends Component {
       actors: data.Actors,
       director: data.Director,
       plot: data.Plot,
-      production: data.Production
+      production: data.Production,
+      poster: data.Poster
     });
   };
 
   render() {
-    
+
     return (
       <Col md={6}>
         <div className="movie-container" style={styles.container}>
@@ -57,7 +59,7 @@ class Movie extends Component {
           <div onClick={this.expandDescription}>{this.props.movieName}</div>
           <div>{this.props.movieYear}</div>
         </div>
-        <ExpandedMovie title={this.state.title} rated={this.state.rated} released={this.state.released} runtime={this.state.runtime} actors={this.state.actors} director={this.state.director} plot={this.state.plot} production={this.state.production} />
+        <ExpandedMovie title={this.state.title} rated={this.state.rated} released={this.state.released} runtime={this.state.runtime} actors={this.state.actors} director={this.state.director} plot={this.state.plot} production={this.state.production} poster={this.state.poster} />
       </Col>
     );
   }
