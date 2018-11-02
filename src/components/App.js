@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Grid, Row } from "react-bootstrap";
 import Movie from "./Movie";
 import SaveButton from "./SaveButton";
-
+import LoginModal from "./LoginModal";
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
           <Movie movieName="Vertigo" movieYear="1958" ranking="1" />
         </Row>
         <SaveButton />
+        <LoginModal />
       </Grid>
     );
   }
