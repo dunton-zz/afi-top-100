@@ -3,10 +3,11 @@ const express = require('express');
 // const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+require('./services/passport'); // import passport.js file, this makes it execute
 
 const app = express();
 
-// Middleware
+// start of Middleware
 
 app.use(bodyParser.json());
 // app.use(
@@ -18,7 +19,10 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-/*                     */
+// end of Middleware
+
+// routes
+require('./routes/authRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 
