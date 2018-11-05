@@ -70,8 +70,7 @@ class App extends Component {
         <Row>
           <Header />
         </Row>
-        {this.renderMovies(afiMovies)}
-
+        <div style={styles.movieContainer}>{this.renderMovies(afiMovies)}</div>
         <div style={styles.moviesWatched}>
           <p>You have watched: {this.state.moviesWatched} out of 100</p>
         </div>
@@ -87,6 +86,10 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     marginTop: "10px"
+  },
+  movieContainer: {
+    borderTop: "1px solid black",
+    borderBottom: "1px solid black"
   }
 };
 
