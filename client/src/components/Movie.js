@@ -67,14 +67,19 @@ class Movie extends Component {
       : styles.container;
     return (
       <Col md={6}>
-        <div className="movie-container" style={containerStyle}>
-          <div>{this.props.ranking}</div>
-          <div onClick={this.checkBox}>
-            <Checkbox variant="contained" color="primary" />
-          </div>
-          <div onClick={this.expandDescription}>{this.props.movieName}</div>
-          <div>{this.props.movieYear}</div>
-        </div>
+        <table style={styles.table}>
+          <tbody>
+            <tr>
+              <td styles={styles.table.first}>{this.props.ranking}</td>
+              <td styles={styles.table.second}>
+                <Checkbox variant="contained" color="primary" />
+              </td>
+              <td styles={styles.table.third}>{this.props.movieName}</td>
+              <td styles={styles.table.fourth}>{this.props.movieYear}</td>
+            </tr>
+          </tbody>
+        </table>
+
         <ExpandedMovie
           expanded={this.state.isExpanded}
           title={this.state.title}
@@ -108,6 +113,14 @@ const styles = {
     borderLeft: "1px solid black",
     borderRight: "1px solid black",
     padding: "0 10px"
+  },
+  table: {
+    width: "100%",
+    first: "50px",
+    second: "50px",
+    third: "",
+    fourth: "100px",
+    border: "1px solid black"
   }
 };
 
