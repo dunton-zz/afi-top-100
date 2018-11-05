@@ -29,9 +29,9 @@ class Movie extends Component {
     });
 
     if (!this.state.isChecked) {
-      this.props.addMovie(true);
+      this.props.addMovie(true, this.props.movieName);
     } else {
-      this.props.addMovie(false);
+      this.props.addMovie(false, this.props.movieName);
     }
   };
 
@@ -65,7 +65,9 @@ class Movie extends Component {
     return (
       <Col md={6}>
         <div style={styles.container}>
-          <div style={styles.container.containedItem}>{this.props.ranking}</div>
+          <div style={styles.container.containedItem}>
+            {this.props.ranking}.
+          </div>
           <div style={styles.container.containedItem}>
             <Checkbox onClick={this.checkBox} />
           </div>

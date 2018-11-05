@@ -17,7 +17,7 @@ export const afiMovies = [
   { title: "2001: A Space Odyssey", year: 1968 },
   { title: "Sunset Boulevard", year: 1950 },
   { title: "The Graduate", year: 1967 },
-  { title: "The General", year: 1927 },
+  { title: "The General", year: 1926 },
   { title: "On The Waterfront", year: 1954 },
   { title: "It's A Wonderful Life", year: 1946 },
 
@@ -55,9 +55,9 @@ export const afiMovies = [
   { title: "The Lord Of The Rings: The Fellowship Of The Ring", year: 2001 },
 
   { title: "West Side Story", year: 1961 },
-  { title: "Taxi Driver", year: 1996 },
+  { title: "Taxi Driver", year: 1976 },
   { title: "The Deer Hunter", year: 1978 },
-  { title: "M*A*S*H", year: 1970 },
+  { title: "MASH", year: 1970 },
   { title: "North By Northwest", year: 1959 },
   { title: "Jaws", year: 1975 },
   { title: "Rocky", year: 1976 },
