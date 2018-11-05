@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const Movie = new Schema({
+const movieSchema = new Schema({
   title: String,
   watched: { type: Boolean, default: false },
+  _user: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
-module.exports = Movie;
+mongoose.model('movie', movieSchema);
