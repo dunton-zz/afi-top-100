@@ -4,6 +4,8 @@ import Movie from "./Movie";
 import SaveButton from "./SaveButton";
 import LoginModal from "./LoginModal";
 import Header from "./Header";
+import { afiMovies } from "./afiMovies";
+//import { RenderMovies } from "./RenderMovies";
 
 class App extends Component {
   constructor() {
@@ -38,28 +40,30 @@ class App extends Component {
       modal: false
     });
   };
+
+  renderMovies = afiMovies => {
+    return afiMovies.map((movie, i) => (
+      <Row key={i}>
+        <Movie
+          addMovie={this.addMovie}
+          movieName={movie.title}
+          movieYear={movie.year}
+          ranking={i + 1}
+        />
+      </Row>
+    ));
+  };
+
   render() {
     return (
       <Grid>
         <Row>
           <Header />
         </Row>
-        <Row>
-          <Movie
-            addMovie={this.addMovie}
-            movieName="Casablanca"
-            movieYear="1942"
-            ranking="1"
-          />
-          <Movie
-            addMovie={this.addMovie}
-            movieName="Vertigo"
-            movieYear="1958"
-            ranking="1"
-          />
-        </Row>
-        <SaveButton />
+        {this.renderMovies(afiMovies)}
+
         <p>You have watched: {this.state.moviesWatched} out of 100</p>
+        <SaveButton />
         {this.isModal()}
       </Grid>
     );
