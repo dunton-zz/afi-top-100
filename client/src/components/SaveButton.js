@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class SaveButton extends Component {
   render() {
-    return <p>BUTTON</p>
+    return <h4>SAVE</h4>;
   }
 }
 

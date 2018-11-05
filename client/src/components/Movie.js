@@ -27,6 +27,12 @@ class Movie extends Component {
     this.setState({
       isChecked: !this.state.isChecked
     });
+
+    if (!this.state.isChecked) {
+      this.props.addMovie(true);
+    } else {
+      this.props.addMovie(false);
+    }
   };
 
   expandDescription = async () => {
