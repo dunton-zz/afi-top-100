@@ -5,6 +5,25 @@ import SaveButton from "./SaveButton";
 import LoginModal from "./LoginModal";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      modal: true
+    };
+  }
+  isModal = () => {
+    if (this.state.modal) {
+      return <LoginModal closeModal={this.closeModal} />;
+    } else {
+      return null;
+    }
+  };
+
+  closeModal = () => {
+    this.setState({
+      modal: false
+    });
+  };
   render() {
     return (
       <Grid>
@@ -13,7 +32,7 @@ class App extends Component {
           <Movie movieName="Vertigo" movieYear="1958" ranking="1" />
         </Row>
         <SaveButton />
-        <LoginModal />
+        {this.isModal()}
       </Grid>
     );
   }

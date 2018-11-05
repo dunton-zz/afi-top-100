@@ -11,15 +11,15 @@ class Movie extends Component {
       isChecked: false,
       isExpanded: false,
       beenClicked: false,
-      title: '',
-      rated: '',
-      released: '',
-      runtime: '',
-      actors: '',
-      director: '',
-      plot: '',
-      production: '',
-      poster: ''
+      title: "",
+      rated: "",
+      released: "",
+      runtime: "",
+      actors: "",
+      director: "",
+      plot: "",
+      production: "",
+      poster: ""
     };
   }
 
@@ -35,7 +35,10 @@ class Movie extends Component {
     });
 
     if (!this.state.beenClicked) {
-      let data = await omdbApiRequest(this.props.movieName, this.props.movieYear)
+      let data = await omdbApiRequest(
+        this.props.movieName,
+        this.props.movieYear
+      );
       this.setState({
         title: data.Title,
         rated: data.Rated,
@@ -49,12 +52,13 @@ class Movie extends Component {
         beenClicked: true,
         isExpanded: true
       });
-
     }
   };
 
   render() {
-    let containerStyle = this.state.isExpanded ? styles.expandedContainer : styles.container;
+    let containerStyle = this.state.isExpanded
+      ? styles.expandedContainer
+      : styles.container;
     return (
       <Col md={6}>
         <div className="movie-container" style={containerStyle}>
@@ -65,7 +69,18 @@ class Movie extends Component {
           <div onClick={this.expandDescription}>{this.props.movieName}</div>
           <div>{this.props.movieYear}</div>
         </div>
-        <ExpandedMovie expanded={this.state.isExpanded} title={this.state.title} rated={this.state.rated} released={this.state.released} runtime={this.state.runtime} actors={this.state.actors} director={this.state.director} plot={this.state.plot} production={this.state.production} poster={this.state.poster}  />
+        <ExpandedMovie
+          expanded={this.state.isExpanded}
+          title={this.state.title}
+          rated={this.state.rated}
+          released={this.state.released}
+          runtime={this.state.runtime}
+          actors={this.state.actors}
+          director={this.state.director}
+          plot={this.state.plot}
+          production={this.state.production}
+          poster={this.state.poster}
+        />
       </Col>
     );
   }
@@ -77,7 +92,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     border: "1px solid black",
-    padding: '0 10px'
+    padding: "0 10px"
   },
   expandedContainer: {
     display: "flex",
@@ -86,7 +101,7 @@ const styles = {
     borderTop: "1px solid black",
     borderLeft: "1px solid black",
     borderRight: "1px solid black",
-    padding: '0 10px',
+    padding: "0 10px"
   }
 };
 

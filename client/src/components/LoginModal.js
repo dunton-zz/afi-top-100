@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-
+import { Button } from "react-bootstrap";
 class LoginModal extends Component {
   render() {
     return (
       <div style={styles.outsideContainer}>
         <div style={styles.insideContainer}>
+          <div
+            style={styles.closeButtonContainer}
+            onClick={this.props.closeModal}
+          >
+            <Button className="close">X</Button>
+          </div>
           <h3>Log in!</h3>
           <p>
             If you don't login then we won't be able to save your AFI Top 100
@@ -35,6 +41,10 @@ const styles = {
   insideContainer: {
     backgroundColor: "white",
     padding: "20px"
+  },
+  closeButtonContainer: {
+    display: "flex",
+    justifyContent: "flex-end"
   }
 };
 
