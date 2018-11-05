@@ -62,24 +62,23 @@ class Movie extends Component {
   };
 
   render() {
-    let containerStyle = this.state.isExpanded
-      ? styles.expandedContainer
-      : styles.container;
     return (
       <Col md={6}>
-        <table style={styles.table}>
-          <tbody>
-            <tr>
-              <td styles={styles.table.first}>{this.props.ranking}</td>
-              <td styles={styles.table.second}>
-                <Checkbox variant="contained" color="primary" />
-              </td>
-              <td styles={styles.table.third}>{this.props.movieName}</td>
-              <td styles={styles.table.fourth}>{this.props.movieYear}</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div style={styles.container}>
+          <div style={styles.container.containedItem}>{this.props.ranking}</div>
+          <div style={styles.container.containedItem}>
+            <Checkbox onClick={this.checkBox} />
+          </div>
+          <div
+            style={styles.container.containedTitle}
+            onClick={this.expandDescription}
+          >
+            {this.props.movieName}
+          </div>
+          <div style={styles.container.containedYear}>
+            {this.props.movieYear}
+          </div>
+        </div>
         <ExpandedMovie
           expanded={this.state.isExpanded}
           title={this.state.title}
@@ -99,28 +98,28 @@ class Movie extends Component {
 
 const styles = {
   container: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
     border: "1px solid black",
-    padding: "0 10px"
+    padding: "0 10px",
+    containedItem: {
+      display: "inline-block",
+      width: "25%"
+    },
+    containedTitle: {
+      display: "inline-block",
+      width: "40%",
+      textAlign: "center"
+    },
+    containedYear: {
+      display: "inline-block",
+      width: "10%",
+      textAlign: "center"
+    }
   },
   expandedContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
     borderTop: "1px solid black",
     borderLeft: "1px solid black",
     borderRight: "1px solid black",
     padding: "0 10px"
-  },
-  table: {
-    width: "100%",
-    first: "50px",
-    second: "50px",
-    third: "",
-    fourth: "100px",
-    border: "1px solid black"
   }
 };
 
