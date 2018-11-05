@@ -47,6 +47,10 @@ class App extends Component {
     });
   };
 
+  saveInfo = () => {
+    console.log(this.state.moviesWatchedList);
+  };
+
   renderMovies = afiMovies => {
     return afiMovies.map((movie, i) => (
       <Row key={i}>
@@ -61,7 +65,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <Grid>
         <Row>
@@ -72,7 +75,7 @@ class App extends Component {
         <div style={styles.moviesWatched}>
           <p>You have watched: {this.state.moviesWatched} out of 100</p>
         </div>
-        <SaveButton />
+        <SaveButton saveInfo={this.saveInfo} />
         {this.isModal()}
       </Grid>
     );
