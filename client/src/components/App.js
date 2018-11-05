@@ -30,13 +30,15 @@ class App extends Component {
         moviesWatched: this.state.moviesWatched + 1,
         moviesWatchedList: [...this.state.moviesWatchedList, movie]
       });
+    } else {
+      let array = [...this.state.moviesWatchedList];
+      let movieIndex = array.indexOf(movie);
+      array.splice(movieIndex, 1);
+      this.setState({
+        moviesWatched: this.state.moviesWatched - 1,
+        moviesWatchedList: array
+      });
     }
-    // } else {
-    //   this.setState(prevState => {
-    //     moviesWatched: this.state.moviesWatched - 1,
-    //     moviesWatchedList: [...prevState.moviesWatchedList,
-    //   });
-    // }
   };
 
   closeModal = () => {
